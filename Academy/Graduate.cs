@@ -42,7 +42,7 @@ namespace Academy
 
 		public override string ToString()
 		{
-			return base.ToString() + $" {Subject}";
+			return base.ToString() + $", {Subject}";
 		}
 
 		public override void Print()
@@ -51,14 +51,10 @@ namespace Academy
 			Console.WriteLine("Subject:\t" + Subject);
 		}
 
-		public override string Scan(ref string line)
+		public override void Init(string[] values)
 		{
-			base.Scan(ref line);
-			int pos = line.IndexOf(" ");
-			line = line.Substring(pos + 1);
-			pos = line.IndexOf(" ");
-			this.Subject = line.Substring(0, pos);
-			return line;
+			base.Init(values);
+			Subject = values[8].Trim();
 		}
 	}
 }

@@ -51,7 +51,7 @@ namespace Academy
 
 		public override string ToString()
 		{
-			return base.ToString() + $" {Speciality} {Group} {Raiting} {Attendance}";
+			return base.ToString() + $", {Speciality}, {Group}, {Raiting}, {Attendance}";
 		}
 
 		public override void Print()
@@ -63,27 +63,13 @@ namespace Academy
 			Console.WriteLine("Attendance:\t\t" + Attendance);
 		}
 
-		public override string Scan(ref string line)
+		public override void Init(string[] values)
 		{
-			base.Scan(ref line);
-			int pos = line.IndexOf(" ");
-			line = line.Substring(pos + 1);
-			pos = line.IndexOf(" ");
-			this.Speciality = line.Substring(0, pos);
-			line = line.Substring(pos + 1);
-			pos = line.IndexOf(" ");
-			this.Group = line.Substring(0, pos);
-			line = line.Substring(pos + 1);
-			pos = line.IndexOf(" ");
-			this.Raiting = Convert.ToDouble(line.Substring(0, pos));
-			line = line.Substring(pos + 1);
-			if (line.Contains(" "))
-			{
-				pos = line.IndexOf(" ");
-				this.Attendance = Convert.ToDouble(line.Substring(0, pos));
-			}
-			else this.Attendance = Convert.ToDouble(line.Substring(0));
-			return line;
+			base.Init(values);
+			Speciality = values[4].Trim();
+			Group = values[5].Trim();
+			Raiting = Convert.ToDouble(values[6]);
+			Attendance = Convert.ToDouble(values[7]);
 		}
 	}
 }

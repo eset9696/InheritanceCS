@@ -42,7 +42,7 @@ namespace Academy
 
 		public override string ToString()
 		{
-			return base.ToString() + $" {Speciality} {Experience}";
+			return base.ToString() + $", {Speciality}, {Experience}";
 		}
 
 		public override void Print()
@@ -52,17 +52,11 @@ namespace Academy
 			Console.WriteLine("Experience:\t" + Experience);
 		}
 
-		public override string Scan(ref string line)
+		public override void Init(string[] values)
 		{
-			base.Scan(ref line);
-			int pos = line.IndexOf(" ");
-			line = line.Substring(pos + 1);
-			pos = line.IndexOf(" ");
-			this.Speciality = line.Substring(0, pos);
-			line = line.Substring(pos + 1);
-			pos = line.IndexOf(" ");
-			this.Experience = Convert.ToInt32(line.Substring(0));
-			return line;
+			base.Init(values);
+			Speciality = values[4].Trim();
+			Experience = Convert.ToInt32(values[5].Trim());
 		}
 	}
 }

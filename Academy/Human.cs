@@ -34,9 +34,17 @@ namespace Academy
 		}
 		public override string ToString()
 		{
-			return $"{LastName} {FirstName} {Age}";
+			return $"{LastName}, {FirstName}, {Age}";
 		}
-		
+
+		public virtual void Init(string[] values)
+		{
+
+			LastName = values[1].Trim();
+			FirstName = values[2].Trim();
+			Age = Convert.ToInt32(values[3].Trim());
+		}
+
 		public virtual void Print()
 		{
             Console.WriteLine(this.GetType());
@@ -45,19 +53,6 @@ namespace Academy
             Console.WriteLine("Age:\t\t" + Age);
         }
 
-		public virtual string Scan(ref string line)
-		{
-			int pos = line.IndexOf(": ");
-			line = line.Substring(pos + 2);
-			pos = line.IndexOf(" ");
-			this.LastName = line.Substring(0, pos);
-			line = line.Substring(pos + 1);
-			pos = line.IndexOf(" ");
-			this.FirstName = line.Substring(0, pos);
-			line = line.Substring(pos + 1);
-			pos = line.IndexOf(" ");
-			this.Age = Convert.ToInt32(line.Substring(0, pos));
-			return line;
-		}
+		
 	}
 }
