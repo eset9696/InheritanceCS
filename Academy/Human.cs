@@ -48,13 +48,13 @@ namespace Academy
 		public virtual void Scan(string line)
 		{
 			int pos = line.IndexOf(": ");
-			line.Substring(pos);
+			line = line.Substring(pos + 2);
 			pos = line.IndexOf(" ");
 			this.LastName = line.Substring(0, pos);
-			line.Substring(pos);
+			line = line.Substring(pos + 1);
 			pos = line.IndexOf(" ");
 			this.FirstName = line.Substring(0, pos);
-			line.Substring(pos);
+			line = line.Substring(pos + 1);
 			pos = line.IndexOf(" ");
 			this.Age = Convert.ToInt32(line.Substring(0, pos));
 		}

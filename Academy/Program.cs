@@ -37,18 +37,18 @@ namespace Academy
 			Console.WriteLine(delimeter);
 
 			Human[] group = new Human[] { student, teacher, graduate, tommy, new Teacher("Diaz", "Ricardo", 50, "Weaopons distribution", 20) };
-			for (int i = 0; i < group.Length; i++)
+			/*for (int i = 0; i < group.Length; i++)
 			{
 				group[i].Print();
 				Console.WriteLine(delimeter);
-			}
+			}*/
 			Console.WriteLine(delimeter);
 			Save(group, "Human.txt");
 			int size = 0;
 			Human[] group1 = Load("Human.txt", ref size);
-			for (int i = 0; i < size - 1; i++)
+			for (int i = 0; i < size; i++)
 			{
-				Console.WriteLine(group1[i]);
+				group1[i].Print();
 				Console.WriteLine(delimeter);
 			}
 			//foreach(Human h in group1) Console.WriteLine(h);
@@ -80,8 +80,8 @@ namespace Academy
 			string line;
 			for (size = 0; (line = reader.ReadLine()) != null; size++);
 			reader.BaseStream.Seek(0, SeekOrigin.Begin);
-			Human [] result = new Human[size - 1];
-			for (int i = 0; i < size - 1; i++)
+			Human [] result = new Human[size];
+			for (int i = 0; i < size; i++)
 			{
 				line = reader.ReadLine();
 				result[i] = Factory(line);
