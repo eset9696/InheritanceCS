@@ -24,7 +24,7 @@ namespace Academy
 			Group = group;
 			Raiting = raiting;
 			Attendance = attendance;
-			Console.WriteLine($"SConstructor:\t{this.GetHashCode()}");
+			//Console.WriteLine($"SConstructor:\t{this.GetHashCode()}");
 		}
 
 		public Student(Human human, string speciality, string group, double raiting, double attendance) : base(human)
@@ -33,7 +33,7 @@ namespace Academy
 			Group = group;
 			Raiting = raiting;
 			Attendance = attendance;
-			Console.WriteLine($"SConstructor:\t{this.GetHashCode()}");
+			//Console.WriteLine($"SConstructor:\t{this.GetHashCode()}");
 		}
 
 		public Student(Student other) : base(other)
@@ -42,11 +42,11 @@ namespace Academy
 			this.Group = other.Group;
 			this.Raiting = other.Raiting;
 			this.Attendance = other.Attendance;
-			Console.WriteLine($"SCopyConstructor:\t{this.GetHashCode()}");
+			//Console.WriteLine($"SCopyConstructor:\t{this.GetHashCode()}");
 		}
 		~Student() 
 		{ 
-			Console.WriteLine($"SDestructor:\t{this.GetHashCode()}");
+			//Console.WriteLine($"SDestructor:\t{this.GetHashCode()}");
 		}
 
 		public override string ToString()

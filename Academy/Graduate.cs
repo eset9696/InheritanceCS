@@ -20,24 +20,24 @@ namespace Academy
 			: base(lastName, firstName, age, speciality, group, raiting, attendance)
 		{
 			Subject = subject;
-			Console.WriteLine($"GConstructor:\t{this.GetHashCode()}");
+			//Console.WriteLine($"GConstructor:\t{this.GetHashCode()}");
 		}
 
 		public Graduate(Student student, string subject) : base(student)
 		{
 			Subject = subject;
-			Console.WriteLine($"GConstructor:\t{this.GetHashCode()}");
+			//Console.WriteLine($"GConstructor:\t{this.GetHashCode()}");
 		}
 
 		public Graduate(Graduate other) : base(other)
 		{
 			this.Subject = other.Subject;
-			Console.WriteLine($"GCopyConstructor:\t{this.GetHashCode()}");
+			//Console.WriteLine($"GCopyConstructor:\t{this.GetHashCode()}");
 		}
 
 		~Graduate() 
 		{
-			Console.WriteLine($"GDestructor:\t{this.GetHashCode()}");
+			//Console.WriteLine($"GDestructor:\t{this.GetHashCode()}");
 		}
 
 		public override string ToString()

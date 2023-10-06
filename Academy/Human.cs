@@ -18,7 +18,7 @@ namespace Academy
 			LastName = lastName;
 			FirstName = firstName;
 			Age = age;
-            Console.WriteLine($"HConstructor:\t\t{this.GetHashCode()}");
+            //Console.WriteLine($"HConstructor:\t\t{this.GetHashCode()}");
         }
 
 		public Human(Human other)
@@ -26,11 +26,11 @@ namespace Academy
 			this.LastName = other.LastName;
 			this.FirstName = other.FirstName;
 			this.Age = other.Age;
-			Console.WriteLine($"H Copy Constructor:\t{this.GetHashCode()}");
+			//Console.WriteLine($"H Copy Constructor:\t{this.GetHashCode()}");
 		}
 		~Human() 
 		{
-            Console.WriteLine($"HDestructor:\t\t{this.GetHashCode()}");
+            //Console.WriteLine($"HDestructor:\t\t{this.GetHashCode()}");
 		}
 		public override string ToString()
 		{

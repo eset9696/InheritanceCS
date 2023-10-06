@@ -18,26 +18,26 @@ namespace Academy
 		{
 			Speciality = speciality;
 			Experience = experience;
-			Console.WriteLine($"TConstructor:\t{this.GetHashCode()}");
+			//Console.WriteLine($"TConstructor:\t{this.GetHashCode()}");
 		}
 
 		public Teacher(Human human, string speciality, int experience) : base(human)
 		{
 			Speciality = speciality;
 			Experience = experience;
-			Console.WriteLine($"TConstructor:\t{this.GetHashCode()}");
+			//Console.WriteLine($"TConstructor:\t{this.GetHashCode()}");
 		}
 
 		public Teacher(Teacher other): base(other)
 		{
 			this.Speciality = other.Speciality;
 			this.Experience = other.Experience;
-			Console.WriteLine($"TCopyConstructor:\t{this.GetHashCode()}");
+			//Console.WriteLine($"TCopyConstructor:\t{this.GetHashCode()}");
 		}
 
 		~Teacher() 
 		{
-			Console.WriteLine($"TDestructor:\t{this.GetHashCode()}");
+			//Console.WriteLine($"TDestructor:\t{this.GetHashCode()}");
 		}
 
 		public override string ToString()

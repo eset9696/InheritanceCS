@@ -37,11 +37,11 @@ namespace Academy
 			Console.WriteLine(delimeter);
 
 			Human[] group = new Human[] { student, teacher, graduate, tommy, new Teacher("Diaz", "Ricardo", 50, "Weaopons_distribution", 20) };
-			/*for (int i = 0; i < group.Length; i++)
+			for (int i = 0; i < group.Length; i++)
 			{
 				group[i].Print();
 				Console.WriteLine(delimeter);
-			}*/
+			}
 			Console.WriteLine(delimeter);
 			Save(group, "Human.txt");
 			int size = 0;
