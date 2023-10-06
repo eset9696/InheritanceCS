@@ -44,12 +44,5 @@ namespace Academy
             Console.WriteLine("FirstName:\t" + FirstName);
             Console.WriteLine("Age:\t\t" + Age);
         }
-
-		/*public virtual void Save(string path)
-		{
-			StreamWriter writer = new StreamWriter(path, false);
-			writer.WriteLine(this.GetType() + " " + this);
-			writer.Close();
-		}*/
 	}
 }

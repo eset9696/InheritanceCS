@@ -62,12 +62,5 @@ namespace Academy
 			Console.WriteLine("Raiting:\t\t" + Raiting);
 			Console.WriteLine("Attendance:\t\t" + Attendance);
 		}
-
-		/*public override void Save(string path)
-		{
-			StreamWriter writer = new StreamWriter(path, false);
-			writer.WriteLine(this);
-			writer.Close();
-		}*/
 	}
 }

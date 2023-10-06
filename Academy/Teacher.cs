@@ -51,12 +51,5 @@ namespace Academy
 			Console.WriteLine("Speciality:\t" + Speciality);
 			Console.WriteLine("Experience:\t" + Experience);
 		}
-
-		/*public override void Save(string path)
-		{
-			StreamWriter writer = new StreamWriter(path, false);
-			writer.WriteLine(this);
-			writer.Close();
-		}*/
 	}
 }

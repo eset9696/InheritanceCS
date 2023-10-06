@@ -50,12 +50,5 @@ namespace Academy
 			base.Print();
 			Console.WriteLine("Subject:\t" + Subject);
 		}
-
-		/*public override void Save(string path)
-		{
-			StreamWriter writer = new StreamWriter(path, false);
-			writer.WriteLine(this);
-			writer.Close();
-		}*/
 	}
 }

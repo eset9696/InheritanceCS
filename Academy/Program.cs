@@ -52,7 +52,6 @@ namespace Academy
 			for (int i = 0;i < human.Length;i++)
 			{
 				writer.WriteLine(human[i].GetType() + " " + human[i]);
-
 			}
 			writer.Close();
 		}
