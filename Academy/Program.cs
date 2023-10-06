@@ -46,12 +46,12 @@ namespace Academy
 			Save(group, "Human.txt");
 			int size = 0;
 			Human[] group1 = Load("Human.txt", ref size);
+			Console.WriteLine(delimeter);
 			for (int i = 0; i < size; i++)
 			{
 				group1[i].Print();
 				Console.WriteLine(delimeter);
 			}
-			Console.WriteLine(delimeter);
 		}
 
 		public static void Save(Human[] human, string path)
