@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -49,5 +50,12 @@ namespace Academy
 			base.Print();
 			Console.WriteLine("Subject:\t" + Subject);
 		}
+
+		/*public override void Save(string path)
+		{
+			StreamWriter writer = new StreamWriter(path, false);
+			writer.WriteLine(this);
+			writer.Close();
+		}*/
 	}
 }

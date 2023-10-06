@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -50,5 +51,12 @@ namespace Academy
 			Console.WriteLine("Speciality:\t" + Speciality);
 			Console.WriteLine("Experience:\t" + Experience);
 		}
+
+		/*public override void Save(string path)
+		{
+			StreamWriter writer = new StreamWriter(path, false);
+			writer.WriteLine(this);
+			writer.Close();
+		}*/
 	}
 }

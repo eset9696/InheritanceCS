@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,19 +36,25 @@ namespace Academy
 			Console.WriteLine(delimeter);
 
 			Human[] group = new Human[] { student, teacher, graduate, tommy, new Teacher("Diaz", "Ricardo", 50, "Weaopons distribution", 20) };
-			for(int i = 0; i < group.Length; i++) 
+			for (int i = 0; i < group.Length; i++)
 			{
 				group[i].Print();
-                Console.WriteLine(delimeter);
-            }
+				Console.WriteLine(delimeter);
+			}
 			Console.WriteLine(delimeter);
+			Save(group, "Human.txt");
+			Console.WriteLine(delimeter);
+		}
 
-			foreach(Human h in  group) 
-			{ 
-				h.Print();
-                Console.WriteLine(delimeter);
-            }
-			Console.WriteLine(delimeter);
+		public static void Save(Human[] human, string path)
+		{
+			StreamWriter writer = new StreamWriter(path, false);
+			for (int i = 0;i < human.Length;i++)
+			{
+				writer.WriteLine(human[i].GetType() + " " + human[i]);
+
+			}
+			writer.Close();
 		}
 	}
 }
