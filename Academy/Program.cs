@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -43,6 +44,14 @@ namespace Academy
 			}
 			Console.WriteLine(delimeter);
 			Save(group, "Human.txt");
+			int size = 0;
+			Human[] group1 = Load("Human.txt", ref size);
+			for (int i = 0; i < size - 1; i++)
+			{
+				Console.WriteLine(group1[i]);
+				Console.WriteLine(delimeter);
+			}
+			//foreach(Human h in group1) Console.WriteLine(h);
 			Console.WriteLine(delimeter);
 		}
 
@@ -51,9 +60,35 @@ namespace Academy
 			StreamWriter writer = new StreamWriter(path, false);
 			for (int i = 0;i < human.Length;i++)
 			{
-				writer.WriteLine(human[i].GetType() + " " + human[i]);
+				writer.WriteLine($"Class {human[i].GetType()}: {human[i]}");
 			}
 			writer.Close();
+		}
+
+		public static Human Factory(string type) 
+		{
+			if (type.Contains("Class Academy.Human:")) return new Human("", "", 0);
+			else if (type.Contains("Class Academy.Student:")) return new Student("", "", 0, "", "", 0, 0);
+			else if (type.Contains("Class Academy.Teacher:")) return new Teacher("", "", 0, "", 0);
+			else if (type.Contains("Class Academy.Graduate:")) return new Graduate("", "", 0, "", "", 0, 0, "");
+			return null;
+		}
+
+		public static Human[] Load(string path, ref int size) 
+		{
+			StreamReader reader = new StreamReader(path);
+			string line;
+			for (size = 0; (line = reader.ReadLine()) != null; size++);
+			reader.BaseStream.Seek(0, SeekOrigin.Begin);
+			Human [] result = new Human[size - 1];
+			for (int i = 0; i < size - 1; i++)
+			{
+				line = reader.ReadLine();
+				result[i] = Factory(line);
+				if (result[i] != null) result[i].Scan(line);
+			}
+			reader.Close();
+			return result;
 		}
 	}
 }

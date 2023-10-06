@@ -62,5 +62,11 @@ namespace Academy
 			Console.WriteLine("Raiting:\t\t" + Raiting);
 			Console.WriteLine("Attendance:\t\t" + Attendance);
 		}
+
+		public override void Scan(string line)
+		{
+			base.Scan(line);
+			Console.WriteLine("Student");
+		}
 	}
 }

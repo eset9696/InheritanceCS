@@ -50,5 +50,11 @@ namespace Academy
 			base.Print();
 			Console.WriteLine("Subject:\t" + Subject);
 		}
+
+		public override void Scan(string line)
+		{
+			base.Scan(line);
+			Console.WriteLine("Student");
+		}
 	}
 }

@@ -44,5 +44,19 @@ namespace Academy
             Console.WriteLine("FirstName:\t" + FirstName);
             Console.WriteLine("Age:\t\t" + Age);
         }
+
+		public virtual void Scan(string line)
+		{
+			int pos = line.IndexOf(": ");
+			line.Substring(pos);
+			pos = line.IndexOf(" ");
+			this.LastName = line.Substring(0, pos);
+			line.Substring(pos);
+			pos = line.IndexOf(" ");
+			this.FirstName = line.Substring(0, pos);
+			line.Substring(pos);
+			pos = line.IndexOf(" ");
+			this.Age = Convert.ToInt32(line.Substring(0, pos));
+		}
 	}
 }

@@ -51,5 +51,11 @@ namespace Academy
 			Console.WriteLine("Speciality:\t" + Speciality);
 			Console.WriteLine("Experience:\t" + Experience);
 		}
+
+		public override void Scan(string line)
+		{
+			base.Scan(line);
+			Console.WriteLine("Student");
+		}
 	}
 }
