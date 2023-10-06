@@ -36,7 +36,7 @@ namespace Academy
 
 			Console.WriteLine(delimeter);
 
-			Human[] group = new Human[] { student, teacher, graduate, tommy, new Teacher("Diaz", "Ricardo", 50, "Weaopons distribution", 20) };
+			Human[] group = new Human[] { student, teacher, graduate, tommy, new Teacher("Diaz", "Ricardo", 50, "Weaopons_distribution", 20) };
 			/*for (int i = 0; i < group.Length; i++)
 			{
 				group[i].Print();
@@ -51,7 +51,6 @@ namespace Academy
 				group1[i].Print();
 				Console.WriteLine(delimeter);
 			}
-			//foreach(Human h in group1) Console.WriteLine(h);
 			Console.WriteLine(delimeter);
 		}
 
@@ -85,7 +84,7 @@ namespace Academy
 			{
 				line = reader.ReadLine();
 				result[i] = Factory(line);
-				if (result[i] != null) result[i].Scan(line);
+				if (result[i] != null) result[i].Scan(ref line);
 			}
 			reader.Close();
 			return result;

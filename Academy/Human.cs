@@ -45,7 +45,7 @@ namespace Academy
             Console.WriteLine("Age:\t\t" + Age);
         }
 
-		public virtual void Scan(string line)
+		public virtual string Scan(ref string line)
 		{
 			int pos = line.IndexOf(": ");
 			line = line.Substring(pos + 2);
@@ -57,6 +57,7 @@ namespace Academy
 			line = line.Substring(pos + 1);
 			pos = line.IndexOf(" ");
 			this.Age = Convert.ToInt32(line.Substring(0, pos));
+			return line;
 		}
 	}
 }

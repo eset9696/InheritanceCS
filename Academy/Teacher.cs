@@ -52,10 +52,17 @@ namespace Academy
 			Console.WriteLine("Experience:\t" + Experience);
 		}
 
-		public override void Scan(string line)
+		public override string Scan(ref string line)
 		{
-			base.Scan(line);
-			Console.WriteLine("Student");
+			base.Scan(ref line);
+			int pos = line.IndexOf(" ");
+			line = line.Substring(pos + 1);
+			pos = line.IndexOf(" ");
+			this.Speciality = line.Substring(0, pos);
+			line = line.Substring(pos + 1);
+			pos = line.IndexOf(" ");
+			this.Experience = Convert.ToInt32(line.Substring(0));
+			return line;
 		}
 	}
 }
