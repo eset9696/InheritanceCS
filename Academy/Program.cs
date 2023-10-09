@@ -64,7 +64,7 @@ namespace Academy
 			Human[] group = Load("group.txt");
 			for (int i = 0; i < group.Length; i++)
 			{
-				group[i].Print();
+				Console.WriteLine(group[i]); ;
                 Console.WriteLine(delimeter);
             }
 		}

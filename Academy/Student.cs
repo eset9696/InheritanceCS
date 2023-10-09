@@ -66,8 +66,8 @@ namespace Academy
 		public override void Init(string[] values)
 		{
 			base.Init(values);
-			Speciality = values[4].Trim();
-			Group = values[5].Trim();
+			Speciality = values[4].TrimStart().TrimEnd();
+			Group = values[5].TrimStart().TrimEnd();
 			Raiting = Convert.ToDouble(values[6]);
 			Attendance = Convert.ToDouble(values[7]);
 		}
