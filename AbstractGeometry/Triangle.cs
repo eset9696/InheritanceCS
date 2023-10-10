@@ -49,7 +49,6 @@ namespace AbstractGeometry
 			get { return side_c; } 
 			set 
 			{
-				if (value > SideA + SideB) value = SideA + SideB - 1;
 				if (value < MIN_SIZE) value = MIN_SIZE;
 				if (value > MAX_SIZE) value = MAX_SIZE;
 				side_c = value;
@@ -76,12 +75,23 @@ namespace AbstractGeometry
 			SideB = side_b;
 			SideC = side_c;
 
+			CheckTriangle();
+
 			AlphaAngle = CalcAlphaAngle();
 			BettaAngle = CalcBettaAngle();
 			GammaAngle = CalcGammaAngle();
+
 		}
 
-		public PointF[] GetPoints()
+        public void CheckTriangle()
+		{
+			if(SideB + SideC < SideA) SideA = SideB + SideC - 1;
+			if(SideA + SideC < SideB) SideB = SideA + SideC - 1;
+			if(SideA + SideB < SideC) SideC = SideA + SideB - 1;
+		}
+
+
+        public PointF[] GetPoints()
 		{
 			Point point_a = new Point(StartX, StartY);
 			Point point_b = new Point(StartX + (int) GetAltitude(side_b), StartY + (int) (side_b - GetDistanceFromHtoVertex(GetAltitude(side_b), side_a)));
@@ -166,7 +176,7 @@ namespace AbstractGeometry
             Console.WriteLine($"Стороны треугольника равны: a = {SideA}, b = {SideB}, c = {SideC}");
             Console.WriteLine($"Высоты треугольника равны: a = {GetAltitude(SideA)}, b = {GetAltitude(SideB)}, c = {GetAltitude(SideC)}");
             Console.WriteLine($"Углы треугольника равны (град.): alpha = {AlphaAngle}, betta = {BettaAngle}, gamma = {GammaAngle}");
-            Console.WriteLine($"Тип треугольника {GetAngleType()}, {GetSideType()}");
+            Console.WriteLine($"Тип треугольника: {GetAngleType()}, {GetSideType()}");
 			//Console.WriteLine($"Высоты треугольника равны: a = {GetDistanceFromHtoVertex(GetAltitude(side_b), side_b)}");
             base.Info(e);
 		}

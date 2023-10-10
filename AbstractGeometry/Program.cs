@@ -22,7 +22,7 @@ namespace AbstractGeometry
 			Rectangle rect = new Rectangle(200, 150, 100, 100, 5, Color.AliceBlue);
 			rect.Info(e);*/
 
-			Triangle triangle = new Triangle(400, 205, 205, 200, 200, 5, Color.Green);
+			Triangle triangle = new Triangle(100, 205, 400, 200, 200, 5, Color.Green);
 			triangle.Info(e);
 
 			/*Round rnd = new Round(150, 150, 200, 5, Color.Yellow);
