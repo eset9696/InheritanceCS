@@ -43,7 +43,13 @@ namespace AbstractGeometry
 			RadiusB = radius_b;
 		}
 
-		public override double GetArea()
+		public Ellipse(double radius, int start_x, int start_y, int line_width, Color color) : base(start_x, start_y, line_width, color)
+		{
+			RadiusA = radius;
+			RadiusB = radius;
+		}
+
+    public override double GetArea()
 		{
 			return Math.PI * radius_a * radius_b;
 		}

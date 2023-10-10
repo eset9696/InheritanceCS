@@ -40,6 +40,12 @@ namespace AbstractGeometry
 			SideB = side_b;
 		}
 
+		public Rectangle(double side, int start_x, int start_y, int line_width, Color color) : base(start_x, start_y, line_width, color)
+		{
+			SideA = side;
+			SideB = side;
+		}
+
 		public override double GetArea()
 		{
 			return SideA * SideB;
