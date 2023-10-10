@@ -14,6 +14,11 @@ namespace AbstractGeometry
 		double side_b;
 		double side_c;
 
+		/*double alpha_angle;
+		double betta_angle;
+		double gamma_angle;*/
+
+
 		/*double altitude_a;
 		double altitude_b;
 		double altitude_c;*/
@@ -51,11 +56,29 @@ namespace AbstractGeometry
 			} 
 		}
 
-		public Triangle(double side_a, double side_b, double side_c, int start_x, int start_y, int line_width, Color color) : base(start_x, start_y, line_width, color)
+		public double AlphaAngle
+		{
+			get; set;
+		}
+
+        public double BettaAngle
+        {
+			get; set;
+        }
+
+        public double GammaAngle
+        {
+			get; set;
+        }
+        public Triangle(double side_a, double side_b, double side_c, int start_x, int start_y, int line_width, Color color) : base(start_x, start_y, line_width, color)
 		{ 
 			SideA = side_a;
 			SideB = side_b;
 			SideC = side_c;
+
+			AlphaAngle = CalcAlphaAngle();
+			BettaAngle = CalcBettaAngle();
+			GammaAngle = CalcGammaAngle();
 		}
 
 		public PointF[] GetPoints()
@@ -89,6 +112,49 @@ namespace AbstractGeometry
 			return Math.Sqrt(Math.Pow(side, 2) - Math.Pow(Altitude, 2));
 		}
 
+        public double CalcAlphaAngle()
+        {
+             return Math.Acos((Math.Pow(SideB, 2) + Math.Pow(SideC, 2) - Math.Pow(SideA, 2)) / (2 * SideB * SideC)) * 180 / Math.PI;
+            
+        }
+
+        public double CalcBettaAngle()
+        {
+            return Math.Acos((Math.Pow(SideA, 2) + Math.Pow(SideC, 2) - Math.Pow(SideB, 2)) / (2 * SideA * SideC)) * 180 / Math.PI;
+        }
+
+        public double CalcGammaAngle()
+        {
+            return Math.Acos((Math.Pow(SideA, 2) + Math.Pow(SideB, 2) - Math.Pow(SideC, 2)) / (2 * SideA * SideB)) * 180 / Math.PI;
+        }
+        
+		public double GetMaxAngle()
+		{
+			return Math.Max(Math.Max(AlphaAngle, BettaAngle), GammaAngle);
+		}
+        public string GetAngleType()
+		{
+			if (GetMaxAngle() > 90) return "тупоугольный";
+			else if (GetMaxAngle() < 90) return "остроугольный";
+			else return "прямоугольный";
+		}
+
+		public string GetSideType()
+		{
+			if (SideA == SideB || SideA == SideC || SideB == SideC)
+			{
+				if (SideA == SideB && SideA == SideC) return "равносторонний";
+                return "равнобедренный";
+            }
+			return "разносторонний";
+            
+        }
+
+		public double GetBigR() // Радиус описанной окружности
+		{
+			return SideA* SideB * SideC / (4 * GetArea());
+		}
+
 		public override void Draw(PaintEventArgs e)
 		{
 			Pen pen = new Pen(Color, LineWidth);
@@ -99,7 +165,9 @@ namespace AbstractGeometry
 		{
             Console.WriteLine($"Стороны треугольника равны: a = {SideA}, b = {SideB}, c = {SideC}");
             Console.WriteLine($"Высоты треугольника равны: a = {GetAltitude(SideA)}, b = {GetAltitude(SideB)}, c = {GetAltitude(SideC)}");
-            Console.WriteLine($"Высоты треугольника равны: a = {GetDistanceFromHtoVertex(GetAltitude(side_b), side_b)}");
+            Console.WriteLine($"Углы треугольника равны (град.): alpha = {AlphaAngle}, betta = {BettaAngle}, gamma = {GammaAngle}");
+            Console.WriteLine($"Тип треугольника {GetAngleType()}, {GetSideType()}");
+			//Console.WriteLine($"Высоты треугольника равны: a = {GetDistanceFromHtoVertex(GetAltitude(side_b), side_b)}");
             base.Info(e);
 		}
 
