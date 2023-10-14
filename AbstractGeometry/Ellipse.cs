@@ -10,7 +10,7 @@ using System.Security.Policy;
 
 namespace AbstractGeometry
 {
-	internal class Ellipse : Shape
+	internal class Ellipse : Shape //IDrawable
 	{
 
 		double radius_a;
@@ -69,6 +69,7 @@ namespace AbstractGeometry
 		{
 			Console.WriteLine($"Длина полуоси А: {RadiusA}");
 			Console.WriteLine($"Длина полуоси Б: {RadiusB}");
+			this.Draw(e);
 			base.Info(e);
 		}
 	}

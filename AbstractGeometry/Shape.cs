@@ -75,7 +75,7 @@ namespace AbstractGeometry
             Console.WriteLine($"Периметер фигуры: {this.GetPerimeter()}");
             Console.WriteLine($"Start_X: {StartX}");
             Console.WriteLine($"Start_Y: {StartY}");
-			this.Draw(e);
+			//this.Draw(e);
             Console.WriteLine();
         }
 	}

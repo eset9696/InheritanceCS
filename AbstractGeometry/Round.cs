@@ -36,11 +36,6 @@ namespace AbstractGeometry
             return Math.PI * Math.Pow(Radius, 2);
         }
 
-        public override void Draw(PaintEventArgs e)
-        {
-            base.Draw(e);
-        }
-
         public override void Info(PaintEventArgs e) 
         {
             Console.WriteLine($"Радиус круга равен: {Radius}");

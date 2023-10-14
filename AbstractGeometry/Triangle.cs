@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace AbstractGeometry
 {
-	internal class Triangle : Shape
+	internal class Triangle : Shape //IDrawable
 	{
 		double side_a;
 		double side_b;
@@ -178,6 +178,7 @@ namespace AbstractGeometry
             Console.WriteLine($"Углы треугольника равны (град.): alpha = {AlphaAngle}, betta = {BettaAngle}, gamma = {GammaAngle}");
             Console.WriteLine($"Тип треугольника: {GetAngleType()}, {GetSideType()}");
 			//Console.WriteLine($"Высоты треугольника равны: a = {GetDistanceFromHtoVertex(GetAltitude(side_b), side_b)}");
+			this.Draw(e);
             base.Info(e);
 		}
 

@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace AbstractGeometry
 {
-	internal class Rectangle : Shape
+	internal class Rectangle : Shape, IHaveDiagonal //IDrawable
 	{
 		double side_a;
 		double side_b;
@@ -67,11 +67,19 @@ namespace AbstractGeometry
 			e.Graphics.DrawRectangle(pen, StartX, StartY, (int) SideA, (int) SideB);
 		}
 
+		public void DrawDiagonal(PaintEventArgs e)
+		{
+			Pen pen = new Pen(Color, LineWidth - 1);
+			e.Graphics.DrawLine(pen, StartX, StartY, StartX + (int) SideA, StartY + (int) SideB);
+		}
+
 		public override void Info(PaintEventArgs e) 
 		{ 
 			Console.WriteLine($"Длина стороны А: {SideA}");
 			Console.WriteLine($"Длина стороны Б: {SideB}");
 			Console.WriteLine($"Диагональ фигуры: {this.GetDiagonal()}");
+			this.Draw(e);
+			this.DrawDiagonal(e);
 			base.Info(e);
 		}
 	}

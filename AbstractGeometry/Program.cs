@@ -22,18 +22,18 @@ namespace AbstractGeometry
 			Rectangle rect = new Rectangle(200, 150, 100, 100, 5, Color.AliceBlue);
 			rect.Info(e);*/
 
-			Triangle triangle = new Triangle(100, 205, 400, 200, 200, 5, Color.Green);
-			triangle.Info(e);
+			/*Triangle triangle = new Triangle(100, 205, 400, 200, 200, 5, Color.Green);
+			triangle.Info(e);*/
 
 			/*Round rnd = new Round(150, 150, 200, 5, Color.Yellow);
-			rnd.Info(e);
+			rnd.Info(e);*/
 
 			Square sq = new Square(150, 150, 150, 5, Color.Orange);
 			sq.Info(e);
 
-			Rectangle rect = new Rectangle(150, 150, 200, 5, Color.White);
+			/*Rectangle rect = new Rectangle(150, 150, 200, 5, Color.White);
 			rect.Info(e);*/
-        }
+		}
         [DllImport("kernel32.dll")]
 		public static extern IntPtr GetConsoleWindow();
 
